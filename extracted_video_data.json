@@ -1,0 +1,222 @@
+[
+    {
+        "id_7ree": 143,
+        "title": "第七集上：按键点灯",
+        "video_url": "https://v.stcai.com/sv/4dd627a4-1850abfb041/4dd627a4-1850abfb041.mp4"
+    },
+    {
+        "id_7ree": 144,
+        "title": "第七集下：按键点灯",
+        "video_url": "https://v.stcai.com/sv/5f5cc317-1850b2b356d/5f5cc317-1850b2b356d.mp4"
+    },
+    {
+        "id_7ree": 145,
+        "title": "第八集：蜂鸣器的应用",
+        "video_url": "https://v.stcai.com/sv/30b2d189-1850b304197/30b2d189-1850b304197.mp4"
+    },
+    {
+        "id_7ree": 146,
+        "title": "第八集：作业",
+        "video_url": "https://v.stcai.com/sv/113ca5ef-18539578c87/113ca5ef-18539578c87.mp4"
+    },
+    {
+        "id_7ree": 147,
+        "title": "第九集：数码管的静态使用",
+        "video_url": "https://v.stcai.com/sv/5090c288-18533f7644d/5090c288-18533f7644d.mp4"
+    },
+    {
+        "id_7ree": 148,
+        "title": "第十集：数码管的动态显示",
+        "video_url": "https://v.stcai.com/sv/2cc6ef3e-18533f9c497/2cc6ef3e-18533f9c497.mp4"
+    },
+    {
+        "id_7ree": 149,
+        "title": "第十一集：定时器的使用",
+        "video_url": "https://v.stcai.com/sv/239dd9af-185759fa373/239dd9af-185759fa373.mp4"
+    },
+    {
+        "id_7ree": 150,
+        "title": "第十二集：计数器的使用",
+        "video_url": "https://v.stcai.com/sv/5419e36f-185759be0a0/5419e36f-185759be0a0.mp4"
+    },
+    {
+        "id_7ree": 151,
+        "title": "第十三集：简易多任务处理上",
+        "video_url": "https://v.stcai.com/sv/4b65367e-185759be0b7/4b65367e-185759be0b7.mp4"
+    },
+    {
+        "id_7ree": 152,
+        "title": "第十三集中：简易多任务处理",
+        "video_url": "https://v.stcai.com/sv/63270858-185759be0df/63270858-185759be0df.mp4"
+    },
+    {
+        "id_7ree": 153,
+        "title": "第十三集下：简易多任务处理",
+        "video_url": "https://v.stcai.com/sv/3edf8e91-185759be0d7/3edf8e91-185759be0d7.mp4"
+    },
+    {
+        "id_7ree": 154,
+        "title": "第十三集终：简易多任务处理",
+        "video_url": "https://v.stcai.com/sv/40e7581f-185759be0ec/40e7581f-185759be0ec.mp4"
+    },
+    {
+        "id_7ree": 155,
+        "title": "第十四集：矩阵按键",
+        "video_url": "https://v.stcai.com/sv/36b001ca-185759f4988/36b001ca-185759f4988.mp4"
+    },
+    {
+        "id_7ree": 156,
+        "title": "第十五集：外部中断",
+        "video_url": "https://v.stcai.com/sv/4a8cc7da-185800594c2/4a8cc7da-185800594c2.mp4"
+    },
+    {
+        "id_7ree": 157,
+        "title": "第十六集：IO中断",
+        "video_url": "https://v.stcai.com/sv/1d63b003-185800401ae/1d63b003-185800401ae.mp4"
+    },
+    {
+        "id_7ree": 158,
+        "title": "第十七集上：模数转换器ADC",
+        "video_url": "https://v.stcai.com/sv/1dbd3063-18595ca668a/1dbd3063-18595ca668a.mp4"
+    },
+    {
+        "id_7ree": 159,
+        "title": "第十七集下：模数转换器ADC",
+        "video_url": "https://v.stcai.com/sv/253a0de0-18595ca6689/253a0de0-18595ca6689.mp4"
+    },
+    {
+        "id_7ree": 160,
+        "title": "第十八集上：ADC采集电源电压和ADC按键",
+        "video_url": "https://v.stcai.com/sv/2dfa490c-185be20f96f/2dfa490c-185be20f96f.mp4"
+    },
+    {
+        "id_7ree": 161,
+        "title": "第十八集中：ADC采集电源电压和ADC按键",
+        "video_url": "https://v.stcai.com/sv/1fc047a1-185be20f942/1fc047a1-185be20f942.mp4"
+    },
+    {
+        "id_7ree": 162,
+        "title": "第十八集下：ADC采集电源电压和ADC按键",
+        "video_url": "https://v.stcai.com/sv/191283d3-185be20f969/191283d3-185be20f969.mp4"
+    },
+    {
+        "id_7ree": 163,
+        "title": "第十九集：NTC温度采集",
+        "video_url": "https://v.stcai.com/sv/3818b079-1860aaa97e5/3818b079-1860aaa97e5.mp4"
+    },
+    {
+        "id_7ree": 164,
+        "title": "第二十集上：串口通信",
+        "video_url": "https://v.stcai.com/sv/56ad5fa2-18624694d06/56ad5fa2-18624694d06.mp4"
+    },
+    {
+        "id_7ree": 165,
+        "title": "第二十集下：串口通信",
+        "video_url": "https://v.stcai.com/sv/1dc01296-18624694d10/1dc01296-18624694d10.mp4"
+    },
+    {
+        "id_7ree": 166,
+        "title": "第二十一集上：串口应用",
+        "video_url": "https://v.stcai.com/sv/53f33adf-186486411da/53f33adf-186486411da.mp4"
+    },
+    {
+        "id_7ree": 167,
+        "title": "第二十一集上：串口应用",
+        "video_url": "https://v.stcai.com/sv/53f33adf-186486411da/53f33adf-186486411da.mp4"
+    },
+    {
+        "id_7ree": 168,
+        "title": "第二十一集下：串口应用",
+        "video_url": "https://v.stcai.com/sv/31ad52c6-18648641234/31ad52c6-18648641234.mp4"
+    },
+    {
+        "id_7ree": 169,
+        "title": "第二十二集：CDC串口通信",
+        "video_url": "https://v.stcai.com/sv/1925cf7c-1866cbd15d6/1925cf7c-1866cbd15d6.mp4"
+    },
+    {
+        "id_7ree": 170,
+        "title": "第二十三集：看门狗",
+        "video_url": "https://v.stcai.com/sv/25a1928-18681846ca9/25a1928-18681846ca9.mp4"
+    },
+    {
+        "id_7ree": 171,
+        "title": "第二十四集：比较器",
+        "video_url": "https://v.stcai.com/sv/54d1c99-18690b47896/54d1c99-18690b47896.mp4"
+    },
+    {
+        "id_7ree": 172,
+        "title": "第二十五集：FLASH模拟EEPROM",
+        "video_url": "https://v.stcai.com/sv/5924e3c8-18690b478e6/5924e3c8-18690b478e6.mp4"
+    },
+    {
+        "id_7ree": 173,
+        "title": "第二十六集：DS18B20温度传感器（单总线）理论分析",
+        "video_url": "https://v.stcai.com/sv/5240b0b4-186b672647b/5240b0b4-186b672647b.mp4"
+    },
+    {
+        "id_7ree": 174,
+        "title": "第二十六集下：DS18B20温度传感器（单总线）代码实现",
+        "video_url": "https://v.stcai.com/sv/56dd4c1b-186b672641e/56dd4c1b-186b672641e.mp4"
+    },
+    {
+        "id_7ree": 175,
+        "title": "第二十七集：软件模拟SPI",
+        "video_url": "https://v.stcai.com/sv/e202a1f-186d8a2b787/e202a1f-186d8a2b787.mp4"
+    },
+    {
+        "id_7ree": 176,
+        "title": "第二十八集：硬件SPI读写FLASH芯片",
+        "video_url": "https://v.stcai.com/sv/6088ed32-186d8a2b7b1/6088ed32-186d8a2b7b1.mp4"
+    },
+    {
+        "id_7ree": 177,
+        "title": "第二十九集：SPI读写FLASH芯片",
+        "video_url": "https://v.stcai.com/sv/3ab55c3d-186d8a2b732/3ab55c3d-186d8a2b732.mp4"
+    },
+    {
+        "id_7ree": 178,
+        "title": "第三十集上：软件模拟IIC",
+        "video_url": "https://v.stcai.com/sv/3f9a1b74-186fe397cb6/3f9a1b74-186fe397cb6.mp4"
+    },
+    {
+        "id_7ree": 179,
+        "title": "第三十集下：软件模拟IIC",
+        "video_url": "https://v.stcai.com/sv/469b9dcc-186fe397d14/469b9dcc-186fe397d14.mp4"
+    },
+    {
+        "id_7ree": 180,
+        "title": "第三十一集：硬件IIC",
+        "video_url": "https://v.stcai.com/sv/5415cec9-187ff75f316/5415cec9-187ff75f316.mp4"
+    },
+    {
+        "id_7ree": 181,
+        "title": "第三十二集：串口EEPROM芯片数据读写",
+        "video_url": "https://v.stcai.com/sv/2dcfe5ac-187ff75f2ac/2dcfe5ac-187ff75f2ac.mp4"
+    },
+    {
+        "id_7ree": 182,
+        "title": "第三十三集：PWM基础",
+        "video_url": "https://v.stcai.com/sv/3b3bd011-187ff75f2bd/3b3bd011-187ff75f2bd.mp4"
+    },
+    {
+        "id_7ree": 183,
+        "title": "第三十四集上：单通道PWM输出",
+        "video_url": "https://v.stcai.com/sv/1b1ac880-188567e438a/1b1ac880-188567e438a.mp4"
+    },
+    {
+        "id_7ree": 184,
+        "title": "第三十四集下：单通道PWM输出",
+        "video_url": "https://v.stcai.com/sv/29e54a4d-188567e431b/29e54a4d-188567e431b.mp4"
+    },
+    {
+        "id_7ree": 185,
+        "title": "第三十五集上：任意频率和占空比的PWM输出",
+        "video_url": "https://v.stcai.com/sv/56bf8eb1-189a9830ed7/56bf8eb1-189a9830ed7.mp4"
+    },
+    {
+        "id_7ree": 186,
+        "title": "第三十五集下：任意频率和占空比的PWM输出",
+        "video_url": "https://v.stcai.com/sv/3aea2618-189a9830ed2/3aea2618-189a9830ed2.mp4"
+    }
+]
