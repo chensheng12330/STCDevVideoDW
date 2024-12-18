@@ -5,21 +5,19 @@ import re
 import json
 import os
 import threading
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed 
 from tqdm import tqdm  # 使用 rich 渲染 tqdm 进度条
 from rich.progress import Progress
+from rich.console import Console
 
 # 依赖三方库:  rich , tqdm, BeautifulSoup, requests
 
 # 给定的10个网页URL地址
 urls = [
-    # 替换为实际的视频网页URL
-    'https://www.stcaimcu.com/plugin.php?id=x7ree_v:x7ree_v&code_7ree=1&id_7ree=164',
-    # 替换为实际的视频网页URL
-    'https://www.stcaimcu.com/plugin.php?id=x7ree_v:x7ree_v&code_7ree=1&id_7ree=165',
     # ...
 ]
 
+console = Console()
 
 # 设置User-Agent为Chrome浏览器
 headers = {
@@ -39,13 +37,24 @@ def clean_title(title):
     return title
 
 
-def load_json(file_path):
-    """从 JSON 文件加载数据"""
-    if os.path.exists(file_path):
+def load_json_with_error_handling(file_path):
+    """
+    安全加载 JSON 文件，添加异常处理。
+    如果文件不存在或内容无效，返回一个空列表。
+    """
+    try:
         with open(file_path, 'r', encoding='utf-8') as f:
             return json.load(f)
-    return []
-
+    except FileNotFoundError:
+        console.print(
+            f"[yellow]Warning: File '{file_path}' not found. Returning empty list.[/yellow]")
+        return []
+    except json.JSONDecodeError as e:
+        console.print(
+            f"[red]Error: Failed to decode JSON file '{file_path}'. Returning empty list.[/red]")
+        console.print(f"Details: {e}")
+        return []
+    
 
 def extract_video_data(url_data, existing_urls, output_file='extracted_video_data.json'):
     """
@@ -54,15 +63,15 @@ def extract_video_data(url_data, existing_urls, output_file='extracted_video_dat
     """
     # 检查是否已经存在 extracted_video_data.json 文件
     if os.path.exists(output_file):
-        print(f"File '{output_file}' already exists. Loading existing data...")
-        with open(output_file, 'r', encoding='utf-8') as f:
-            video_data = json.load(f)
+        console.print(f"File '{output_file}' already exists. Loading existing data...")
+        
+        video_data = load_json_with_error_handling(output_file)
         return video_data
 
     # 如果文件不存在，继续进行提取
     video_data = []
 
-    print("[blue]Extracting video data from URLs...[/blue]")
+    console.print("[blue]Extracting video data from URLs...[/blue]")
     with tqdm(total=len(url_data), desc="Processing URLs", unit="URL") as pbar:
         for item in url_data:
             url = item.get('url')
@@ -70,7 +79,7 @@ def extract_video_data(url_data, existing_urls, output_file='extracted_video_dat
 
             # 跳过已存在的 URL
             if url in existing_urls:
-                print(f"Skipping already downloaded URL: {url}")
+                console.print(f"Skipping already downloaded URL: {url}")
                 pbar.update(1)
                 continue
 
@@ -112,7 +121,7 @@ def extract_video_data(url_data, existing_urls, output_file='extracted_video_dat
                     })
 
             except requests.exceptions.RequestException as e:
-                print(f"Error fetching {url}: {e}")
+                console.print(f"Error fetching {url}: {e}")
                 continue
 
             finally:
@@ -123,7 +132,7 @@ def extract_video_data(url_data, existing_urls, output_file='extracted_video_dat
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(video_data, f, ensure_ascii=False, indent=4)
 
-    print(f"[green]Extracted video data saved to '{output_file}'.[/green]")
+    console.print(f"[green]Extracted video data saved to '{output_file}'.[/green]")
     return video_data
 
 def save_to_json(data, filename):
@@ -166,18 +175,28 @@ def download_video(video_info, folder="STCVideo"):
     file_name = f"{id_7ree}-{video_info['title']}.mp4"
     file_path = os.path.join(folder, file_name)
 
+    # 检查文件是否已存在
+    if os.path.exists(file_path):
+        console.print(
+            f"[yellow]File '{file_name}' already exists. Skipping download.[/yellow]")
+        return {
+            'id_7ree': id_7ree,
+            'title': video_info['title'],
+            'video_url': video_info['video_url']
+        }
+    
     # 下载视频
     try:
-        print(f"Starting download: {file_name}")
+        console.print(f"Starting download: {file_name}")
         download_with_rich(video_info['video_url'], file_path)
-        print(f"[green]Downloaded: {file_name}[/green]")
+        console.print(f"[green]Downloaded: {file_name}[/green]")
         return {
             'id_7ree': id_7ree,
             'title': video_info['title'],
             'video_url': video_info['video_url']
         }
     except Exception as e:
-        print(f"[red]Failed to download {file_name}: {e}[/red]")
+        console.print(f"[red]Failed to download {file_name}: {e}[/red]")
         return None
 
 
@@ -190,8 +209,7 @@ def download_videos_concurrently(video_info_list, max_workers=2, folder="STCVide
 
     # 加载已有的数据
     if os.path.exists(save_file):
-        with open(save_file, 'r', encoding='utf-8') as f:
-            existing_data = json.load(f)
+        existing_data = load_json_with_error_handling(save_file)
     else:
         existing_data = []
 
@@ -212,27 +230,37 @@ def download_videos_concurrently(video_info_list, max_workers=2, folder="STCVide
                         json.dump(existing_data, f,
                                   ensure_ascii=False, indent=4)
 
-                    print(f"Updated '{save_file}' with {result['title']}")
+                    console.print(f"Updated '{save_file}' with {result['title']}")
             except Exception as e:
-                print(f"Error downloading {video_info['title']}: {e}")
+                console.print(f"Error downloading {video_info['title']}: {e}")
 
     return downloaded_videos
 
 
 def main():
     # 加载本地 JSON 文件数据
-    url_data = load_json('STC32G_Video.json')
+    url_data = load_json_with_error_handling('STC32G_Video.json')
 
     # 加载已存在的 URL 数据
-    existing_data = load_json('save_list_data.json')
+    existing_data = load_json_with_error_handling('save_list_data.json')
     existing_urls = {item['video_url'] for item in existing_data}
 
     # 提取视频数据
     video_info = extract_video_data(url_data, existing_urls)
 
-    # 保存提取的视频信息到 JSON 文件
-    save_to_json(video_info, 'extracted_video_data.json')
-
+    # 检查提取的视频信息是否为空
+    if video_info:
+        # 保存提取的视频信息到 JSON 文件
+        save_to_json(video_info, 'extracted_video_data.json')
+        print(f"Extracted video information saved to 'extracted_video_data.json'.")
+    else:
+        console.print(
+            "No video information extracted. Skipping save operation.", style="bold red")
+        
+        console.print(
+            "All Over...", style="bold blue")
+        return
+        
     # 下载视频，限制并发任务数量为 2
     downloaded_videos = download_videos_concurrently(video_info, max_workers=2)
 
@@ -242,7 +270,7 @@ def main():
     # 保存最终的下载信息到 save_list_data.json
     save_to_json(existing_data, 'save_list_data.json')
 
-    print("[bold green]All downloads are complete. Updated 'save_list_data.json' with successful downloads.[/bold green]")
+    console.print("[bold green]All downloads are complete. Updated 'save_list_data.json' with successful downloads.[/bold green]")
 
 
 if __name__ == '__main__':
